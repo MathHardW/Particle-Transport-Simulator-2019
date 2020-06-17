@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="Tela" maxHeight="1051.0" maxWidth="1276.0" minHeight="1011.0" minWidth="1223.0" prefHeight="1025.0" prefWidth="1276.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTelaPrincipalController">
+    <stylesheets>
+        <URL value="@/css/style.css" />
+    </stylesheets>
+   <children>
+      <MenuBar fx:id="MenuBarPrincipal" prefHeight="29.0" prefWidth="1276.0" style="-fx-background-color: #00420c;" styleClass="MenuOpera" stylesheets="@../css/style.css">
+        <menus>
+          <Menu fx:id="MenuOperacoes" mnemonicParsing="false" style="-fx-color: white;" text="Operações">
+            <items>
+                  <MenuItem fx:id="MenuItemNovoProjeto" mnemonicParsing="false" onAction="#MenuItemNovoProjetoAction" text="Novo Projeto" />
+                  <MenuItem fx:id="MenuItemSalvarProjeto" mnemonicParsing="false" onAction="#MenuItemSalvarProjetoAction" text="Salvar Projeto" />
+              <MenuItem fx:id="MenuItemDadosIniciais" disable="true" mnemonicParsing="false" onAction="#MenuItemDadosIniciaisAction" text="Dados Iniciais" />
+                  <MenuItem fx:id="MenuItemDadosMateriais" disable="true" mnemonicParsing="false" onAction="#MenuItemDadosMateriais" text="Dados Materiais" />
+                  <MenuItem fx:id="MenuItemDadosRegionais" disable="true" mnemonicParsing="false" onAction="#MenuItemDadosRegionaisAction" text="Dados Regionais" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Sobre" />
+          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="Sair" />
+        </menus>
+      </MenuBar>
+      <Pane layoutX="941.0" layoutY="245.0" prefHeight="748.0" prefWidth="329.0" style="-fx-border-width: 3px; -fx-border-color: black; -fx-border-radius: 1px; -fx-background-color: white;">
+         <children>
+            <TextField fx:id="TXTnumRegioes" editable="false" focusTraversable="false" layoutX="7.0" layoutY="28.0" prefHeight="29.0" prefWidth="314.0" promptText="Número de Regiões .: 0" style="-fx-text-fill: black;" />
+            <TextField fx:id="TXTnumMateriais" editable="false" focusTraversable="false" layoutX="8.0" layoutY="62.0" prefHeight="29.0" prefWidth="314.0" promptText="Número de Materiais .: 0" />
+            <TextField fx:id="txt_CriterioParada" editable="false" focusTraversable="false" layoutX="8.0" layoutY="95.0" prefHeight="29.0" prefWidth="314.0" promptText="Critério de Parada .: 0" />
+            <TextField fx:id="txt_OrdemQuadratura" editable="false" focusTraversable="false" layoutX="8.0" layoutY="128.0" prefHeight="29.0" prefWidth="314.0" promptText="Ordem de Quadratura .: 0" />
+            <TextField fx:id="txt_ContornoEsquerda" editable="false" focusTraversable="false" layoutX="8.0" layoutY="161.0" prefHeight="29.0" prefWidth="153.0" promptText="Contorno Esq. .:" />
+            <TextField fx:id="txt_ContornoDireita" editable="false" focusTraversable="false" layoutX="168.0" layoutY="161.0" prefHeight="29.0" prefWidth="153.0" promptText="Contorno Dir. .:" />
+            <Pane layoutY="3.0" prefHeight="20.0" prefWidth="329.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="121.0" layoutY="2.0" style="-fx-text-fill: white;" text="Dados Iniciais" />
+               </children>
+            </Pane>
+            <TextField fx:id="txt_PeriodicidadeNodos" editable="false" focusTraversable="false" layoutX="7.0" layoutY="196.0" prefHeight="26.0" prefWidth="314.0" promptText="Periodicidade dos Nodos" />
+            <ComboBox fx:id="comboBoxMetodo" layoutX="8.0" layoutY="346.0" prefHeight="0.0" prefWidth="314.0" promptText="                      Escolha um Método" />
+            <TextField fx:id="txt_Fuga_Esquerda" editable="false" focusTraversable="false" layoutX="8.0" layoutY="255.0" prefHeight="26.0" prefWidth="314.0" promptText="Fuga para Esquerda .: 0.0" />
+            <TextField fx:id="txt_Fuga_Direita" editable="false" focusTraversable="false" layoutX="8.0" layoutY="287.0" prefHeight="26.0" prefWidth="314.0" promptText="Fuga para Direita .: 0.0" />
+            <ComboBox fx:id="comboBoxProjeto" layoutX="9.0" layoutY="377.0" prefHeight="7.0" prefWidth="314.0" promptText="                            Abrir Projeto" />
+            <Button fx:id="btnConfirmarDados" layoutX="175.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnConfirmarDadosAction" prefHeight="26.0" prefWidth="147.0" text="Calcular" />
+            <Label fx:id="labelExecutando" layoutX="9.0" layoutY="408.0" prefHeight="26.0" prefWidth="314.0" style="-fx-background-color: #00420c; -fx-border-color: black; -fx-text-fill: red;" text=" Esperando um projeto ..." />
+            <Button fx:id="btnSelecionarProjeto" layoutX="10.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnSelecionarProjetoAction" prefHeight="26.0" prefWidth="153.0" text="Selecionar Projeto" />
+            <Pane layoutY="228.0" prefHeight="20.0" prefWidth="329.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="100.0" layoutY="2.0" style="-fx-text-fill: white;" text="Resultado das Fugas" />
+               </children>
+            </Pane>
+            <Pane layoutY="320.0" prefHeight="20.0" prefWidth="329.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="99.0" layoutY="2.0" style="-fx-text-fill: white;" text="Definições de Projeto" />
+               </children>
+            </Pane>
+            <TextField fx:id="txtCaminhoTexto" editable="false" layoutX="9.0" layoutY="438.0" prefHeight="26.0" prefWidth="314.0" promptText="Caminho do arquivo ..." style="-fx-background-color: #00420c; -fx-border-color: black; -fx-text-fill: red;" />
+            <TextArea fx:id="txt_Tempo" editable="false" layoutX="8.0" layoutY="526.0" prefHeight="214.0" prefWidth="314.0" promptText="                    TEMPO DE EXECUÇÃO" style="-fx-background-color: black; -fx-font: white;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextArea>
+            <Pane layoutX="3.0" layoutY="501.0" prefHeight="20.0" prefWidth="323.0" style="-fx-background-color: black;">
+               <children>
+                  <Label layoutX="102.0" layoutY="2.0" style="-fx-text-fill: white;" text="Status de Execução" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <TabPane layoutX="14.0" layoutY="33.0" prefHeight="615.0" prefWidth="920.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3px; -fx-border-radius: 1px;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Fluxo Escalar (Gráfico)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="paneViewGrafico" prefHeight="581.0" prefWidth="920.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Fluxo Escalar (Tabela)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="TableViewFluxoEscalar" prefHeight="579.0" prefWidth="920.0">
+                          <columns>
+                            <TableColumn fx:id="TableColumnPontos" prefWidth="75.0" text="PONTOS" />
+                            <TableColumn fx:id="TableColumnFluxo" prefWidth="75.0" text="FLUXO ESCALAR" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Pane layoutY="999.0" prefHeight="26.0" prefWidth="1276.0" style="-fx-background-color: #00420c;">
+         <children>
+            <Label layoutX="607.0" layoutY="5.0" style="-fx-text-fill: white;" text="Matheus Ribeiro © 2019" />
+         </children></Pane>
+      <TableView fx:id="TableViewDadosRegionais" editable="true" fixedCellSize="0.0" layoutX="14.0" layoutY="657.0" prefHeight="336.0" prefWidth="657.0" style="-fx-border-color: black; -fx-border-width: 3px; -fx-border-radius: 1px;">
+         <columns>
+            <TableColumn fx:id="TableColumnRegiao" editable="false" prefWidth="96.0" text="REGIÃO" />
+            <TableColumn fx:id="TableColumnTamanho" prefWidth="110.0" text="TAMANHO" />
+            <TableColumn fx:id="TableColumnParticao" prefWidth="75.0" text="PARTIÇÃO" />
+            <TableColumn fx:id="TableColumnFonte" prefWidth="75.0" text="FONTE" />
+            <TableColumn fx:id="TableColumnMaterial" prefWidth="75.0" text="MATERIAL" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="TableViewDadosMateriais" layoutX="679.0" layoutY="657.0" prefHeight="336.0" prefWidth="255.0" style="-fx-border-color: black; -fx-border-width: 3PX; -fx-border-radius: 1px;">
+         <columns>
+            <TableColumn fx:id="TableColumnMaterialIndice" prefWidth="95.0" text="MATERIAL" />
+            <TableColumn fx:id="TableColumnST" prefWidth="55.0" text="ST" />
+            <TableColumn fx:id="TableColumnSS" prefWidth="75.0" text="SS" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <ImageView fitHeight="187.0" fitWidth="198.0" layoutX="917.0" layoutY="42.0">
+         <image>
+            <Image url="@../iff.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="187.0" fitWidth="175.0" layoutX="1096.0" layoutY="44.0">
+         <image>
+            <Image url="@../logo.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

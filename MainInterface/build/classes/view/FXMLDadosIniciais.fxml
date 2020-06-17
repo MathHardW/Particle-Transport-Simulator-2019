@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="236.0" prefWidth="479.0" style="-fx-background-color: #8797B2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLDadosIniciaisController">
+    <stylesheets>
+        <URL value="@/css/style.css" />
+    </stylesheets>
+   <children>
+      <Button id="btn_Var" fx:id="btn_Var" layoutX="22.0" layoutY="202.0" mnemonicParsing="false" onAction="#btn_VarAction" prefHeight="26.0" prefWidth="434.0" styleClass="css/style.css" text="Preencher Variáveis" />
+      <Pane layoutX="16.0" layoutY="11.0" prefHeight="185.0" prefWidth="448.0" style="-fx-background-color: #A7A5C6; -fx-border-color: white; -fx-border-radius: 1px; -fx-border-width: 3px;">
+         <children>
+            <TextField fx:id="txt_NumMateriais" layoutX="218.0" layoutY="6.0" prefHeight="25.0" prefWidth="223.0" promptText="Número de Zonas Materiais" />
+            <TextField fx:id="txt_NumRegioes" layoutX="5.0" layoutY="6.0" prefHeight="26.0" prefWidth="204.0" promptText="Número de Regiões" />
+            <TextField fx:id="txt_CriterioParada" layoutX="218.0" layoutY="39.0" prefHeight="25.0" prefWidth="223.0" promptText="Critério de Parada" />
+            <TextField fx:id="txt_OrdemQuadratura" layoutX="5.0" layoutY="39.0" prefHeight="26.0" prefWidth="204.0" promptText="Ordem de Quadratura" />
+            <ComboBox fx:id="comboBoxContornoEsquerda" layoutX="5.0" layoutY="75.0" onAction="#contornoActionEsq" prefHeight="26.0" prefWidth="204.0" promptText="Contorno a Esquerda" />
+            <TextField fx:id="txt_PeriodicidadeNodos" layoutX="7.0" layoutY="150.0" prefHeight="26.0" prefWidth="434.0" promptText="Periodicidade dos Nodos" />
+            <TextField fx:id="txt_ContornoEsquerda" disable="true" layoutX="7.0" layoutY="111.0" prefHeight="26.0" prefWidth="204.0" promptText="VALOR PRESCRITO         &lt;---" />
+            <TextField fx:id="txt_ContornoDireita" disable="true" layoutX="218.0" layoutY="111.0" prefHeight="26.0" prefWidth="223.0" promptText="VALOR PRESCRITO              ----&gt;" />
+            <ComboBox fx:id="comboBoxContornoDireita" layoutX="218.0" layoutY="75.0" onAction="#contornoActionDir" prefHeight="26.0" prefWidth="223.0" promptText="Contorno a Direita" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
